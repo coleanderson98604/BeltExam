@@ -17,9 +17,9 @@ class LoginManager(models.Manager):
             errors["username"] = "username should be atleast 2 characters"
         # if len(postData['last_name']) < 3:
         #     errors["last_name"] = "Last name should be atleast 2 characters"
-        if not re.match('^[a-z]*$',postData['name']):
+        if not re.match('^[a-zA-Z]*$',postData['name']):
             errors["characters"] = "Name must contain only letters"
-        if not re.match('^[a-z]*$',postData['username']):
+        if not re.match('^[a-zA-Z]*$',postData['username']):
             errors["characters"] = "Username must contain only letters"
         # if not EMAIL_REGEX.match(postData['email']):
         #     errors["email"] = "Must be a valid email"
