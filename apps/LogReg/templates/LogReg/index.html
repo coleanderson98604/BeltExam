@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LoginOrRegistration</title>
+</head>
+<body>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <h2>Registration</h2>
+    <form action="/register" method="POST">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" name="name">
+        <label for="username">Userame:</label>
+        <input type="text" name="username">
+        <!-- <label for="email">Email:</label>
+        <input type="email" name="email"> -->
+        <label for="password">Password:</label>
+        <input type="password" name="password">
+        <lable for="Cpassword">Confirm Password:</lable>
+        <input type="password" name="Cpassword">
+        <label for="birthdate">Birthdate</label>
+        <input type="date" name="birthdate">
+        <input type="submit" value="Register">
+    </form>
+    <h2>Login</h2>
+    <form action="/success" method="POST">
+        {% csrf_token %}
+        <label for="Username">Username:</label>
+        <input type="text" name="Username">
+        <label for="Password">Password:</label>
+        <input type="password" name="Password">
+        <input type="submit" value="login">
+    </form>
+</body>
+</html>
